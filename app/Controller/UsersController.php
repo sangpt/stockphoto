@@ -9,12 +9,12 @@ class UsersController extends AppController {
 
 	public function login() {
         if($this->Session->check('Auth.User')){
-            $this->redirect(array('controller' => 'posts', 'action' => 'index'));      
+            $this->redirect(array('controller' => 'photos', 'action' => 'index'));     
         }
 
 	    if ($this->request->is('post')) {
 	        if ($this->Auth->login()) {
-	            return $this->redirect($this->Auth->redirectUrl());
+	            $this->redirect(array('controller' => 'photos', 'action' => 'index'));
 	        }
 	        $this->Flash->error(__('Invalid email or password, try again'));
 	    }
