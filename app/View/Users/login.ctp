@@ -10,5 +10,5 @@
     ?>
     </fieldset>
 <?php echo $this->Form->end(__('Login')); ?>
-<?php echo $this->Html->link('Create an account', array('action' => 'add')); ?>
+<?php echo $this->Html->link('Create an account', array('action' => 'signup')); ?>
 </div>
