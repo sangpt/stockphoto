@@ -34,11 +34,55 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'https://cakephp.org'); ?></h1>
+			<nav class="navbar navbar-inverse">
+			    <div class="container-fluid">
+				    <div class="navbar-header">
+				            <?php echo $this->Html->link(
+				            	'<h3 style="margin-top:10px;">StockPhotos_TeamC</h3>', 
+				            	array('controller' => 'photos', 'action' => 'index'),
+				            	array('escape' => false)); ?>
+				   
+				    </div>
+				    <ul class="nav navbar-nav navbar-right">
+				        <li>
+				            <?php echo $this->Html->link(
+				            	'<span class="glyphicon glyphicon-user"></span> Sign Up', 
+				            	array('controller' => 'users', 'action' => 'signup'),
+				            	array('escape' => false)); ?>
+				        </li>
+				        <li>
+				        	<?php 
+					        	if($this->Session->read('Auth.User')) {   
+						        	echo $this->Html->link(
+						            	'<span class="glyphicon glyphicon-log-out"></span> Log Out', 
+						            	array('controller' => 'users', 'action' => 'logout'),
+						            	array('escape' => false)); 
+					        	} else {
+					        		echo $this->Html->link(
+						            	'<span class="glyphicon glyphicon-log-in"></span> Log In', 
+						            	array('controller' => 'users', 'action' => 'login'),
+						            	array('escape' => false)); 
+					        	}
+
+				            ?>
+				        </a></li>
+				    </ul>
+			    </div>
+			</nav>
 		</div>
 		<div id="content">
 
