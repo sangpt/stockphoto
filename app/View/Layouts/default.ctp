@@ -46,13 +46,19 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 </head>
 <body>
-	<div id="container">
-		<div id="header">
+	<style type="text/css">
+		.bgimg {
+		    background-image: url('https://static.pexels.com/photos/10651/photo-1432821596592-e2c18b78144f.jpeg');
+		}
+	</style>
+
+	<div id="container" class="bgimg">
+		<div id="">
 			<nav class="navbar navbar-inverse">
 			    <div class="container-fluid">
 				    <div class="navbar-header">
 				            <?php echo $this->Html->link(
-				            	'<h3 style="margin-top:10px;">StockPhotos_TeamC</h3>', 
+				            	'<h3 style="margin-top:10px; color:white;">StockPhotos_TeamC</h3>', 
 				            	array('controller' => 'photos', 'action' => 'index'),
 				            	array('escape' => false)); ?>
 				   
@@ -84,24 +90,13 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			    </div>
 			</nav>
 		</div>
-		<div id="content">
-
+		<div>
 			<?php echo $this->Flash->render(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'https://cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
-			<p>
-				<?php echo $cakeVersion; ?>
-			</p>
+
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
