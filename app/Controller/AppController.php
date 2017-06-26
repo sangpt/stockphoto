@@ -49,13 +49,12 @@ class AppController extends Controller {
 	            )
 	        ),
 	        'authorize' => array('Controller') // Added this line
-	        
 	    ),
 	    'Session'
 	);
 
 	public function isAuthorized($user) {
-	        return true;
+	        return false;
 	}
 
     public function beforeFilter() {
