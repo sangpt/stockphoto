@@ -8,4 +8,12 @@ echo $this->Html->image($image['Image']['images']);
 echo 'Upload by: ' . $image['User']['name'];
 ?>
 </h4>
+
+<?php
+    echo $this->Form->postLink(
+        'Delete',
+        array('action' => 'delete', $image['Image']['id']),
+        array('confirm' => 'Are you sure?')
+    );
+?>
 </center>
