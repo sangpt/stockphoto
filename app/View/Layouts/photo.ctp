@@ -33,12 +33,24 @@
 		
 	<div id="fh5co-offcanvass">
 		<a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i> </a>
-		<h1 class="fh5co-logo"><a class="navbar-brand" <?php echo $this->Html->link('Team C', '/images/index'); ?>
-</a></h1>
+		<h4 style="margin-left: 5px; margin-bottom: 15px;">
+		<?php
+			if($this->Session->read('Auth.User')){
+			    echo 'Hello, ' . $this->Session->read('Auth.User.name');
+			}
+		?>
+		</h4>
 		<ul>
 			<li><?php echo $this->Html->link('Home', '/images/index'); ?></li>
-			<li><?php echo $this->Html->link('Upload Images', '/images/upload'); ?></li>
-			<li><?php echo $this->Html->link('Log Out', '/users/logout'); ?></li>
+			
+			<?php if ($this->Session->read('Auth.User')) { ?>
+				<li><?php echo $this->Html->link('Upload Images', '/images/upload'); ?></li>
+				<li><?php echo $this->Html->link('Log Out',
+					array('controller' => 'users', "action" => "logout")); ?></li>
+			<?php } else { ?>
+				<li><?php echo $this->Html->link('Log In',
+					array('controller' => 'users', "action" => "login")); ?></li>
+			<?php } ?>
 
 		</ul>
 		<h3 class="fh5co-lead">Connect with us</h3>
