@@ -7,7 +7,9 @@ class ImagesController extends AppController {
     var $components = array('Upload');      // nạp Component upload
        
     public function index(){
-        $images = $this->Image->find("all");
+        $images = $this->Image->find("all",array(
+            'order' => 'Image.id DESC'
+       ));
         $this->set("images",$images);
     }
 
