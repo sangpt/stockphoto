@@ -62,6 +62,7 @@ class ImagesController extends AppController {
                                     exit();
                     }
 
+                    $data['Image']['user_id'] = $this->Auth->user('id');
                     if ($this->Image->save($data)) {
                             $this->Session->setFlash('Image has been added.');
                             $this->redirect('/images/index');
