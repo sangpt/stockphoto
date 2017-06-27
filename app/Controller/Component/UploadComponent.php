@@ -154,8 +154,7 @@ class UploadComponent extends Object {
             array_push($this->errors, $message);
         }    
         
-        function image ($file, $type, $size, $output = NULL, $quality = NULL) {
-            
+        function image ($file, $type, $size, $output = NULL, $quality = NULL) {       
             if (is_null($type)) $type = 'resize';
             if (is_null($size)) $size = 100;
             if (is_null($output)) $output = 'jpg';
@@ -324,10 +323,6 @@ class UploadComponent extends Object {
             } else {
                 $this->error("Could not write " . $this->_name . " to " . $this->_destination);
             }
-        }
-        
-        function newname ($file) {
-            return time() . "." . $this->ext($file);
         }
         
         function uniquename ($file) {
