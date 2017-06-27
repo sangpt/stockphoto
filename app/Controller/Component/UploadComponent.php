@@ -158,7 +158,7 @@ class UploadComponent extends Object {
             if (is_null($type)) $type = 'resize';
             if (is_null($size)) $size = 100;
             if (is_null($output)) $output = 'jpg';
-            if (is_null($quality)) $quality = 75;
+            if (is_null($quality)) $quality = 100;
             
             // -- format variables
             $type = strtolower($type);
