@@ -36,7 +36,7 @@ class AppController extends Controller {
 	public $components = array(
 	    'Flash',
 	    'Auth' => array(
-	        'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
+	        'loginRedirect' => array('controller' => 'images', 'action' => 'index'),
 	        'logoutRedirect' => array(
 	            'controller' => 'pages',
 	            'action' => 'display',
@@ -58,6 +58,6 @@ class AppController extends Controller {
 	}
 
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view');
+        $this->Auth->allow('index', 'view','like');
     }
 }
