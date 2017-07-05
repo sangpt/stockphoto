@@ -18,7 +18,6 @@ class UsersController extends AppController {
 	        if ($this->Auth->login()) {
 	            $this->redirect(array('controller' => 'images', 'action' => 'index'));
 	        }
-	        $this->Flash->error(__('Invalid email or password, try again'));
 	    }
 	}
 

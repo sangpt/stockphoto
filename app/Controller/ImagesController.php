@@ -7,11 +7,39 @@ class ImagesController extends AppController {
     var $components = array('Upload');      // nạp Component upload
        
     public function index(){
-        $images = $this->Image->find("all",array(
+        $result = $this->Image->find("all",array(
             'order' => 'Image.id DESC'
         ));
+
+        $images = array();
+
+        $user_id = $this->Auth->user('id');
+
+        // check user_id da like image hay chua
+        if (isset($user_id)) {
+            foreach ($result as $value) { 
+                if (count($value['Like']) == 0) {
+                    $value['is_like'] = 0;
+                }
+                else {
+                    $value['is_like'] = 0;
+                    foreach ($value['Like'] as $like) {
+                        if ($like['user_id'] == $user_id ) {
+                            $value['is_like'] = 1;
+                            break;
+                        }
+                    }
+                }
+                $images[] = $value;
+            }
+        }
+        else {
+            foreach ($result as $value) { 
+                    $value['is_like'] = 0;
+                    $images[] = $value;
+            }
+        }
         $this->set("images",$images);
-        
     }
 
     public function like(){
@@ -21,12 +49,6 @@ class ImagesController extends AppController {
         if( $this->request->is('ajax') ) {
             $id = $this->request->data('id_article');
             $uid = $this->Auth->user('id');
-            
-            
-            // $result = $this->Book->find('first', array(
-            //                                            'conditions' => array('id' => $id)
-            //                             ));
-            // echo json_encode($result);
         }
         $result = $this->Like->find('first',array('conditions' => array('AND' => array('Like.image_id' => $id ,'Like.user_id' => $uid))));
         if (count($result) == 0) {
@@ -145,5 +167,9 @@ class ImagesController extends AppController {
 
         return parent::isAuthorized($user);
     }
+
+    // public function checkLike($id) {
+
+    // }
 }
 ?>
