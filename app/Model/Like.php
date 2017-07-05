@@ -16,5 +16,4 @@ class Like extends AppModel{
 		);
 	}
 }
-
- ?>
+?>
