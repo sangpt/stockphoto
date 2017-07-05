@@ -47,17 +47,13 @@ class AppController extends Controller {
 	                'passwordHasher' => 'Blowfish',
 	                'fields' => array('username' => 'email')
 	            )
-	        ),
-	        'authorize' => array('Controller') // Added this line
+	        )
 	    ),
 	    'Session'
 	);
 
-	public function isAuthorized($user) {
-	        return false;
-	}
 
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view','like');
+        $this->Auth->allow('index', 'view');
     }
 }
