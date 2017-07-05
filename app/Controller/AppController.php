@@ -52,7 +52,6 @@ class AppController extends Controller {
 	    'Session'
 	);
 
-
     public function beforeFilter() {
         $this->Auth->allow('index', 'view');
     }

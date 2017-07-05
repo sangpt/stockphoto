@@ -90,16 +90,25 @@ class ImagesController extends AppController {
             throw new MethodNotAllowedException();
         }
 
-        if ($this->Image->delete($id)) {
-            $this->Flash->success(
-                __('The post with id: %s has been deleted.', h($id))
-            );
-        } else {
-            $this->Flash->error(
-                __('The post with id: %s could not be deleted.', h($id))
-            );
-        }
+        $image = $this->Image->find('first', array(
+            'conditions' => array('Image.id' => $id)));
+        $uid = $this->Auth->user('id');
 
+        if ($image['User']['id'] == $uid) {
+            if ($this->Image->delete($id)) {
+                $this->Flash->success(
+                    __('The post with id: %s has been deleted.', h($id))
+                );
+            } else {
+                $this->Flash->error(
+                    __('The post with id: %s could not be deleted.', h($id))
+                );
+            }
+        } else {
+            $this->Flash->success(
+                    __('The post with id: %s could not be deleted.', h($id))
+                );
+        }
         return $this->redirect(array('action' => 'index'));
     }
 
