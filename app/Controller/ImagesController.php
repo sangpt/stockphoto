@@ -1,7 +1,7 @@
 
 <?php
 class ImagesController extends AppController {
-    public $layout = "photo";
+    public $layout = "images";
     var $name = 'Images';
     var $helpers = array('Html', 'Form');
     var $components = array('Upload');      // nạp Component upload
@@ -9,10 +9,48 @@ class ImagesController extends AppController {
     public function index(){
         $images = $this->Image->find("all",array(
             'order' => 'Image.id DESC'
-       ));
+        ));
         $this->set("images",$images);
+        
     }
 
+    public function like(){
+        $this->layout = false;
+        $this->autoRender = false;
+        $this->loadModel('Like');
+        if( $this->request->is('ajax') ) {
+            $id = $this->request->data('id_article');
+            $uid = $this->Auth->user('id');
+            
+            
+            // $result = $this->Book->find('first', array(
+            //                                            'conditions' => array('id' => $id)
+            //                             ));
+            // echo json_encode($result);
+        }
+        $result = $this->Like->find('first',array('conditions' => array('AND' => array('Like.image_id' => $id ,'Like.user_id' => $uid))));
+        if (count($result) == 0) {
+            $data = array(
+                'Like' => array(
+                    'user_id' => $uid,
+                    'image_id' => $id
+                )
+            );
+
+            // prepare the model for adding a new entry
+            $this->Like->create();
+
+            // save the data
+            $this->Like->save($data);
+            $is_like = true;
+        } else {
+            $this->Like->delete($result['Like']['id']);
+            $is_like = false;
+        }
+           
+        $count = $this->Like->find('all', array('conditions' => array('Like.image_id' => $id)));
+        echo json_encode(array('like_count' => count($count) ,'is_like' => $is_like));
+    }
     public function view($id = null) {
         if (!$id) {
             throw new NotFoundException(__('Invalid image'));
