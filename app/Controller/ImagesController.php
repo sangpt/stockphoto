@@ -10,7 +10,7 @@ class ImagesController extends AppController {
         $result = $this->Image->find("all",array(
             'order' => 'Image.id DESC'
         ));
-
+      
         $images = array();
 
         $user_id = $this->Auth->user('id');
@@ -176,9 +176,5 @@ class ImagesController extends AppController {
 
         return parent::isAuthorized($user);
     }
-
-    // public function checkLike($id) {
-
-    // }
 }
 ?>
