@@ -38,7 +38,9 @@
                                     array('escape' => false));
                                 echo $this->Form->end();
                             }
+
                             echo "<b><div class ='like_count' id = '" . $image['Image']['id'] . "'>" . count($image['Like']) . "</div></b>";
+
                         ?>
                         </div>
                         <div class="col-md-6">
