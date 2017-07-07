@@ -12,7 +12,9 @@
                             array('escape' => false)
                         );
                         ?>
-
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
                         <?php 
                             if ($image['is_like'] == 1) {
                                 echo $this->Form->button(
@@ -36,19 +38,21 @@
                                     array('escape' => false));
                                 echo $this->Form->end();
                             }
-                                echo $this->Form->button( $this->Html->link(
-                                    '<span class="glyphicon glyphicon-comment"></span> Comment',
-                                    array(
-                                        'controller' => 'images', 
-                                        'class' => 'btn btn-default btn-sm',
-                                        'action' => 'view',$image['Image']['id']),
-                                    array('escape' => false)
-                                    ));
-                                echo $this->Form->end();
-                                echo "<div class='like' > <div class ='like_count' id = '" . $image['Image']['id'] . "'>" . count($image['Like']) . "</div> </div>";
 
-                            echo count($image['Comment']);
+                            echo "<b><div class ='like_count' id = '" . $image['Image']['id'] . "'>" . count($image['Like']) . "</div></b>";
+
                         ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php
+                                echo $this->HTML->link(
+                                '<span class="glyphicon glyphicon-comment"></span> Comment', 
+                                array('controller' => 'images', 'action' => 'view', $image['Image']['id']),
+                                array('class' => 'btn btn-default btn-sm',
+                                    'id' => $image['Image']['id'],
+                                    'escape' => false));
+                            ?>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>
