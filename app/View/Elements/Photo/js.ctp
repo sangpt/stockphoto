@@ -1,10 +1,10 @@
 <?php echo $this->Html->script(array(
-	'/photo/js/modernizr-2.6.2.min.js',
-	'/photo/js/jquery.min.js',
-	'/photo/js/jquery.easing.1.3.js',
-	'/photo/js/jquery.waypoints.min.js',
-	'/photo/js/jquery.magnific-popup.min.js',
-	'/photo/js/salvattore.min.js',
-	'/photo/js/main.js',)
+	'/js/modernizr-2.6.2.min.js',
+	'/js/jquery.min.js',
+	'/js/jquery.easing.1.3.js',
+	'/js/jquery.waypoints.min.js',
+	'/js/jquery.magnific-popup.min.js',
+	'/js/salvattore.min.js',
+	'/js/main.js',)
 );
 ?>

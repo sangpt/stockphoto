@@ -38,7 +38,10 @@
                             }
                                 echo $this->Form->button( $this->Html->link(
                                     '<span class="glyphicon glyphicon-comment"></span> Comment',
-                                    array('controller' => 'images', 'action' => 'view',$image['Image']['id']),
+                                    array(
+                                        'controller' => 'images', 
+                                        'class' => 'btn btn-default btn-sm',
+                                        'action' => 'view',$image['Image']['id']),
                                     array('escape' => false)
                                     ));
                                 echo $this->Form->end();
