@@ -36,7 +36,15 @@
                                     array('escape' => false));
                                 echo $this->Form->end();
                             }
-                            echo "<div class ='like_count' id = '" . $image['Image']['id'] . "'>" . count($image['Like']) . "</div>";
+                                echo $this->Form->button( $this->Html->link(
+                                    '<span class="glyphicon glyphicon-comment"></span> Comment',
+                                    array('controller' => 'images', 'action' => 'view',$image['Image']['id']),
+                                    array('escape' => false)
+                                    ));
+                                echo $this->Form->end();
+                                echo "<div class='like' > <div class ='like_count' id = '" . $image['Image']['id'] . "'>" . count($image['Like']) . "</div> </div>";
+
+                            echo count($image['Comment']);
                         ?>
                     </div>
                 </div>
