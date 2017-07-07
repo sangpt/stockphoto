@@ -52,6 +52,8 @@
                                     'id' => $image['Image']['id'],
                                     'escape' => false));
                             ?>
+                        <b><?php echo count($image['Comment']); ?></b>
+
                         </div>
                     </div>
                 </div>
