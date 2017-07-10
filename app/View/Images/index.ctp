@@ -48,7 +48,7 @@
                                 echo $this->HTML->link(
                                 '<span class="glyphicon glyphicon-comment"></span> Comment', 
                                 array('controller' => 'images', 'action' => 'view', $image['Image']['id']),
-                                array('class' => 'btn btn-default btn-sm',
+                                array('class' => 'btn btn-succes btn-sm',
                                     'id' => $image['Image']['id'],
                                     'escape' => false));
                             ?>
