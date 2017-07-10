@@ -24,19 +24,7 @@ class Image extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Comment' => array(
-			'className' => 'Comment',
-			'foreignKey' => 'image_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
+		'Comment' 
 	);
 
     public function isOwnedBy($image, $user) {

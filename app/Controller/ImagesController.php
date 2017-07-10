@@ -74,6 +74,11 @@ class ImagesController extends AppController {
         echo json_encode(array('like_count' => count($count) ,'is_like' => $is_like));
     }
     public function view($id = null) {
+        $this->loadModel('Like');
+        $this->loadModel('Comment');
+
+        $user_id = $this->Auth->user('id');
+
         if (!$id) {
             throw new NotFoundException(__('Invalid image'));
         }
@@ -82,7 +87,21 @@ class ImagesController extends AppController {
         if (!$image) {
             throw new NotFoundException(__('Invalid image'));
         }
+
+        $conditions = array("Like.user_id" => $user_id, "image_id" => $id); 
+
+        if ($this->Like->find('first', array('conditions' => $conditions))) {
+            $this->set('liked', 1);
+        } else {
+            $this->set('liked', 0);
+        }
+
+        $comments = $this->Comment->find('all', array('conditions' => array('image_id' => $id)));
+
+        $this->set('comments', $comments);
         $this->set('image', $image);
+        $this->set('user_id', $user_id);
+        $this->set('image_user_id', $image['User']['id']);   
     }
     
     public function delete($id) {
