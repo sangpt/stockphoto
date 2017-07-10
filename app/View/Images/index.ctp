@@ -51,8 +51,9 @@
                                 array('class' => 'btn btn-succes btn-sm',
                                     'id' => $image['Image']['id'],
                                     'escape' => false));
+                                echo "<b> &nbsp &nbsp" .count($image['Comment'])."</b>";
                             ?>
-                        <b><?php echo count($image['Comment']); ?></b>
+                        <!-- <b><?php echo count($image['Comment']); ?></b> -->
 
                         </div>
                     </div>
