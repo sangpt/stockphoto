@@ -105,6 +105,9 @@ class ImagesController extends AppController {
     }
     
     public function delete($id) {
+        $this->layout = false;
+        $this->autoRender = false;
+        
         if ($this->request->is('get')) {
             throw new MethodNotAllowedException();
         }
