@@ -96,7 +96,10 @@ class ImagesController extends AppController {
             $this->set('liked', 0);
         }
 
-        $comments = $this->Comment->find('all', array('conditions' => array('image_id' => $id)));
+        $comments = $this->Comment->find('all', array(
+            'conditions' => array('image_id' => $id),
+            'order' => array('Comment.id' => 'asc')
+        ));
 
         $this->set('comments', $comments);
         $this->set('image', $image);
