@@ -74,18 +74,16 @@
 		<h5><b>COMMENT</b></h5>
 		<?php
 			foreach ($comments as $comment) {
-				echo '<div class="comment" id="' . $comment['Comment']['id'] . '">';
+				echo '<div class="comment" id="comment-' . $comment['Comment']['id'] . '">';
 				echo '<b>' .  $comment['User']['name'] . '</b><br>';
-				echo '<p style="font-size: 18px;">' . $comment['Comment']['message'] . '<p>';
+				echo '<p style="font-size: 16px;">' . $comment['Comment']['message'] . '<p>';
 				echo '<i style="font-size: 12px;">' . $comment['Comment']['created'] . '</i>';
 
 				if($this->Session->read('Auth.User')){
-					if($user_id == $comment['User']['id']){		    
-						echo $this->Form->postLink(
-							'Delete',
-							array('controller' => 'comments', 'action' => 'delete', $comment['Comment']['id']),
-							array('confirm' => 'Are you sure?')
-				    	);
+					if($user_id == $comment['User']['id']){		
+				?> 
+				  	<a href="javascript:void(0)" onclick="delete_comment(<?php echo $comment['Comment']['id'] ?>);">Delete</a>
+				<?php 
 				    }
 				}
 				echo '</div>';

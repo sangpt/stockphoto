@@ -17,7 +17,7 @@
 	
 <?php echo $this->element("/photo/css"); ?>
 	
-	<?php echo $this->Html->css('custom'); ?>
+	<?php echo $this->Html->css('customs'); ?>
 	
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -25,7 +25,7 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
      <?php echo $this->Html->script('like_image'); ?>
-     <?php echo $this->Html->script('comments'); ?>
+     <?php echo $this->Html->script('comment'); ?>
 
 	</head>
 	<body>
