@@ -55,19 +55,23 @@
 
 		<?php
 			if($this->Session->read('Auth.User')) {
-				echo $this->Form->create('Comment', array(
-				    'url' => array('controller' => 'comments', 'action' => 'add')));
-				echo $this->Form->input('message', array('rows' => '5', 'label' => false, 'style' => 'width:350px;'));
-				echo $this->Form->hidden('image_id', array('value' => $image['Image']['id']));
-				echo $this->Form->hidden('user_id', array('value' => $user_id));
-				echo $this->Form->button('Comment', array('style' => 'width:100px; height: 30px;'));
-				echo $this->Form->end();
+			?>
+				<div class="addComment input-group">
+					<textarea rows="5" cols="50" class="comment-input" placeholder="Add your comment..."></textarea>
+					<div>
+						<button class="btn-primary" type="submit" onclick="comment(<?php echo $image['Image']['id'] ?>, <?php echo $user_id ?>)">
+							Comment
+						</button>
+					</div>
+				</div>
+			<?php 
+
 			}
 		?>
 
 	</div>
-	<div class="col-md-4">
-		<h5><b>COMMENT</b> <span class="label label-primary"><?php echo count($image['Comment']) ?></span></h5>
+	<div class=" show-comment col-md-4">
+		<h5><b>COMMENT</b></h5>
 		<?php
 			foreach ($comments as $comment) {
 				echo '<div class="comment" id="' . $comment['Comment']['id'] . '">';
