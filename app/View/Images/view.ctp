@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="col-md-12" style="margin-bottom: 100px;">
 	<div class="col-md-6 col-md-offset-1">
 		<h4>
 		<?php
@@ -70,14 +70,15 @@
 		?>
 
 	</div>
-	<div class=" show-comment col-md-4">
+	<div class="col-md-4">
 		<h5><b>COMMENT</b></h5>
+		<div class="show-comment scroll">
 		<?php
 			foreach ($comments as $comment) {
 				echo '<div class="comment" id="comment-' . $comment['Comment']['id'] . '">';
 				echo '<b>' .  $comment['User']['name'] . '</b><br>';
 				echo '<p style="font-size: 16px;">' . $comment['Comment']['message'] . '<p>';
-				echo '<i style="font-size: 12px;">' . $comment['Comment']['created'] . '</i>';
+				echo '<i style="font-size: 10px;">' . $comment['Comment']['created'] . '</i>';
 
 				if($this->Session->read('Auth.User')){
 					if($user_id == $comment['User']['id']){		
@@ -89,5 +90,6 @@
 				echo '</div>';
 			}
 		?>
+		</div>
 	</div>
 </div>

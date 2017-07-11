@@ -25,7 +25,16 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
      <?php echo $this->Html->script('like_image'); ?>
-     <?php echo $this->Html->script('comment'); ?>
+     <?php echo $this->Html->script('js-comments'); ?>
+
+
+     <style>
+		div.scroll {
+		    width: 450px;
+		    height: 450px;
+		    overflow: scroll;
+		}	
+	</style>
 
 	</head>
 	<body>
@@ -75,8 +84,7 @@
 	
 	<?php echo $this->fetch("content"); ?>
 
-
-	<footer id="fh5co-footer">
+	<footer id="fh5co-footer" style="padding-top: 100px;">
 		
 		<div class="container">
 			<div class="row row-padded">
