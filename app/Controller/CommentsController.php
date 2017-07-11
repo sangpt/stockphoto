@@ -42,21 +42,21 @@ class CommentsController extends AppController {
        	echo json_encode(array('comment' =>$comment , 'comment_count' =>count($image['Comment'])));
 	}
 
-	public function delete($id) {
+	public function delete() {
         if ($this->request->is('get')) {
             throw new MethodNotAllowedException();
         }
 
-        $comment = $this->Comment->find('first', array(
-            'conditions' => array('Comment.id' => $id)));
+        $this->layout = false;
+        $this->autoRender =false;
 
-        $uid = $this->Auth->user('id');
-
-        if ($comment['User']['id'] == $uid) {
-            if ($this->Comment->delete($id)) {
-        		return $this->redirect(array('controller' => 'images', 'action' => 'view', $comment['Image']['id']));
-        	}
+        if( $this->request->is('ajax') ) {
+            $id = $this->request->data('id');
         }
+    
+        $this->Comment->delete($id);
+        
+        echo json_encode(array('result' => $id));
     }
 }
 ?>
