@@ -87,7 +87,7 @@
 				if($this->Session->read('Auth.User')){
 					if($user_id == $comment['User']['id']){		
 				?> 
-				  	<a href="javascript:void(0)" onclick="delete2(<?php echo $comment['Comment']['id'] ?>);">Delete</a>
+				  	<a href="javascript:void(0)" onclick="delete_comment(<?php echo $comment['Comment']['id'] ?>);">Delete</a>
 				<?php 
 				    }
 				}
