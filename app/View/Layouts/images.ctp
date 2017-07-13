@@ -53,6 +53,7 @@
 			
 			<?php if ($this->Session->read('Auth.User')) { ?>
 				<li><?php echo $this->Html->link('Upload Images', '/images/upload'); ?></li>
+				<li><?php echo $this->Html->link('Upload Videos', '/videos/upload'); ?></li>
 				<li><?php echo $this->Html->link('Log Out',
 					array('controller' => 'users', "action" => "logout")); ?></li>
 			<?php } else { ?>
@@ -76,6 +77,7 @@
 				<div class="col-md-12">
 					<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
 					<a class="navbar-brand" <?php echo $this->Html->link('StockPhotos', '/images/index'); ?> </a>
+					<a class="navbar-brand" <?php echo $this->Html->link('StockVideos', '/videos/index'); ?> </a>
 				</div>
 			</div>
 		</div>
