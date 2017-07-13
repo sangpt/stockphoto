@@ -50,6 +50,7 @@ class VideosController extends AppController {
             $uid = $this->Auth->user('id');
         }
         $result = $this->Like->find('first',array('conditions' => array('AND' => array('Like.video_id' => $id ,'Like.user_id' => $uid))));
+
         if (count($result) == 0) {
             $data = array(
                 'Like' => array(
@@ -72,6 +73,7 @@ class VideosController extends AppController {
         $count = $this->Like->find('all', array('conditions' => array('Like.video_id' => $id)));
         echo json_encode(array('like_count' => count($count) ,'is_like' => $is_like));
     }
+
     public function view($id = null) {
         $this->loadModel('Like');
         $this->loadModel('Comment');
@@ -135,6 +137,7 @@ class VideosController extends AppController {
         }
         return $this->redirect(array('action' => 'index'));
     }
+
 
     public function upload(){
         if ($this->request->is('post')) {

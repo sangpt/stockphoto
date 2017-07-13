@@ -2,16 +2,16 @@
 	<div class="col-md-6 col-md-offset-1">
 		<h4>
 		<?php
-		echo 'Uploaded by: ' . $i['User']['name']; 
+		echo 'Uploaded by: ' . $video['User']['name']; 
 		?>
 		</h4>
 		<h5>
 		<?php
 			if($this->Session->read('Auth.User')){
-				if($user_id == $image_user_id){		    
+				if($user_id == $video_user_id){		    
 					echo $this->Form->postLink(
 						'Delete',
-						array('action' => 'delete', $image['Image']['id']),
+						array('action' => 'delete', $video['Video']['id']),
 						array('confirm' => 'Are you sure?')
 		    );}
 			}
@@ -19,7 +19,11 @@
 		<h5>
 		<br>
 		<?php
-		echo $this->Html->image($image['Image']['images']);
+        echo $this->Html->media($video['Video']['videos'], array(
+            'type' => 'videos/mp4',
+            'controls',
+            'style' => 'width:600px; height:450px;'
+            ));
 		?>
 		<br>
 		<br>
@@ -29,8 +33,8 @@
                     '<span class="glyphicon glyphicon-heart"></span> Like', 
                     array('controller' => 'likes', 'action' => 'like',
                         'class' => 'btn btn-danger btn-sm',
-                        'id' => $image['Image']['id'],
-                        'onclick' => 'like('. $image['Image']['id'] .')',
+                        'id' => $video['Video']['id'],
+                        'onclick' => 'like_video('. $video['Video']['id'] .')',
                         'name' => 'like'),
                     array('escape' => false));
                 echo $this->Form->end();
@@ -40,14 +44,14 @@
                     '<span class="glyphicon glyphicon-heart"></span> Like', 
                     array('controller' => 'likes', 'action' => 'like',
                         'class' => 'btn btn-default btn-sm',
-                        'id' => $image['Image']['id'],
-                        'onclick' => 'like('. $image['Image']['id'] .')',
+                        'id' => $video['Video']['id'],
+                        'onclick' => 'like_video('. $video['Video']['id'] .')',
                         'name' => 'like'),
                     array('escape' => false));
                 echo $this->Form->end();
             }
 
-            echo "<b><div class ='like_count' id = '" . $image['Image']['id'] . "'>" . count($image['Like']) . "</div></b>";
+            echo "<b><div class ='like_count' id = '" . $video['Video']['id'] . "'>" . count($video['Like']) . "</div></b>";
 
         ?>
 
@@ -59,7 +63,7 @@
 				<div class="addComment input-group">
 					<textarea rows="5" cols="50" class="comment-input" placeholder="Add your comment..."></textarea>
 					<div>
-						<button class="btn-primary" type="submit" onclick="comment(<?php echo $image['Image']['id'] ?>, <?php echo $user_id ?>)">
+						<button class="btn-primary" type="submit" onclick="comment_video(<?php echo $video['Video']['id'] ?>, <?php echo $user_id ?>)">
 							Comment
 						</button>
 					</div>
@@ -83,7 +87,7 @@
 				if($this->Session->read('Auth.User')){
 					if($user_id == $comment['User']['id']){		
 				?> 
-				  	<a href="javascript:void(0)" onclick="delete_comment(<?php echo $comment['Comment']['id'] ?>);">Delete</a>
+				  	<a href="javascript:void(0)" onclick="delete2(<?php echo $comment['Comment']['id'] ?>);">Delete</a>
 				<?php 
 				    }
 				}

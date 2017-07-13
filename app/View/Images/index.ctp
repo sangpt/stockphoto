@@ -43,7 +43,7 @@
 
                         ?>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <?php
                                 echo $this->HTML->link(
                                 '<span class="glyphicon glyphicon-comment"></span> Comment', 
@@ -55,6 +55,10 @@
                             ?>
                         <!-- <b><?php echo count($image['Comment']); ?></b> -->
 
+                        </div>
+                        <div class="col-md-4">
+                            
+                            <div class="fb-share-button" data-href="http://192.168.33.10/STOCK_PHOTO_teamC/" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F192.168.33.10%2FSTOCK_PHOTO_teamC%2F&amp;src=sdkpreparse">Share</a></div>
                         </div>
                     </div>
                 </div>
