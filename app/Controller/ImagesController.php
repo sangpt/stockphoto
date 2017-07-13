@@ -1,4 +1,3 @@
-
 <?php
 class ImagesController extends AppController {
     public $layout = "images";

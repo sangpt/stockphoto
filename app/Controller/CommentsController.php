@@ -16,7 +16,7 @@ class CommentsController extends AppController {
                 'message' => $message
             )
         );
-
+ 
         // prepare the model for adding a new entry
         $this->Comment->create();
 
@@ -28,7 +28,7 @@ class CommentsController extends AppController {
             'AND' => array(
 				'Comment.message' => $message,
 				'Comment.user_id' =>$user_id,
-				'Comment.image_id' => $image_id
+				'Comment.image_id' => $image_id,
 				)
         	
         )));
@@ -36,11 +36,59 @@ class CommentsController extends AppController {
         $this->log( $comment);
 
         $this->loadModel('Image');
+
         
        	$image = $this->Image->find('first', array('conditions' => array('Image.id' => $image_id)));
 
+
        	echo json_encode(array('comment' =>$comment , 'comment_count' =>count($image['Comment'])));
+
 	}
+
+    public function add_comment_video() {
+        $this->layout = false;
+        $this->autoRender =false;
+        if( $this->request->is('ajax') ) {
+            $message = $this->request->data('message');
+            $user_id = $this->request->data('user_id');
+            $video_id = $this->request->data('video_id'); 
+        }
+
+        $data = array(
+            'Comment' => array(
+                'user_id' => $user_id,
+                'video_id' => $video_id,
+                'message' => $message
+            )
+        );
+ 
+        // prepare the model for adding a new entry
+        $this->Comment->create();
+
+        // save the data
+        $this->Comment->save($data);
+
+        $comment = $this->Comment->find('first', 
+            array('conditions' => array(
+            'AND' => array(
+                'Comment.message' => $message,
+                'Comment.user_id' =>$user_id,
+                'Comment.video_id' => $video_id,
+                )
+            
+        )));
+
+        $this->log($comment);
+
+        $this->loadModel('Video');
+
+        
+        $video = $this->Video->find('first', array('conditions' => array('Video.id' => $video_id)));
+
+
+        echo json_encode(array('comment' =>$comment));
+    }
+
 
 	public function delete() {
         if ($this->request->is('get')) {

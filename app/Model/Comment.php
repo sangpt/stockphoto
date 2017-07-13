@@ -1,6 +1,7 @@
 <?php 
 class Comment extends AppModel{
-	public $belongsTo = array('User', 'Image');
+	public $belongsTo = array('User', 'Image', 'Video');
+
 
 
     public $validate = array(

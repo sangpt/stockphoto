@@ -50,6 +50,7 @@ class VideosController extends AppController {
             $uid = $this->Auth->user('id');
         }
         $result = $this->Like->find('first',array('conditions' => array('AND' => array('Like.video_id' => $id ,'Like.user_id' => $uid))));
+
         if (count($result) == 0) {
             $data = array(
                 'Like' => array(
@@ -72,6 +73,7 @@ class VideosController extends AppController {
         $count = $this->Like->find('all', array('conditions' => array('Like.video_id' => $id)));
         echo json_encode(array('like_count' => count($count) ,'is_like' => $is_like));
     }
+
     public function view($id = null) {
         $this->loadModel('Like');
         $this->loadModel('Comment');
@@ -136,53 +138,7 @@ class VideosController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
-    // public function upload() {
-    //     if (empty($this->data)) {
-    //         $this->render();
-    //     } else {
-    //         $data = $this->data;
 
-    //         // đường dẫn tới thu mục upload file ảnh
-    //         $destination = realpath('../../app/webroot/img/') . '/';
-
-    //         // grab the file
-    //         $file = $this->data['Image']['filedata'];
-
-    //         // cấu hình upload
-    //         $rule = array(
-    //                         'type' => 'resizemin',
-    //                         'size' => array('400', '300'),
-    //                         'output' => 'jpg',
-    //                     );
-    
-    //         $result = $this->Upload->upload($file, $destination, NULL, $rule);
-
-    //         if (!$this->Upload->errors){
-
-    //                 $data['Image']['images'] = $this->Upload->result;
-
-    //         } else {
-    //                 // display error
-    //                 $errors = $this->Upload->errors;
-
-    //                 // piece together errors
-    //                 if(is_array($errors)){ $errors = implode("<br />",$errors); }
-
-    //                         $this->Session->setFlash($errors);
-    //                         $this->redirect('/images/upload');
-    //                         exit();
-    //         }
-
-    //         $data['Image']['user_id'] = $this->Auth->user('id');
-    //         if ($this->Image->save($data)) {
-    //                 $this->Session->setFlash('Image has been added.');
-    //                 $this->redirect('/images/index');
-    //         } else {
-    //                 $this->Session->setFlash('Please correct errors below.');
-    //                 unlink($destination.$this->Upload->result);
-    //         }
-    //     }
-    // }
     public function upload(){
         if ($this->request->is('post')) {
             $this->Video->create();

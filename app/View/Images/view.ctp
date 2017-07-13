@@ -23,52 +23,56 @@
 		?>
 		<br>
 		<br>
-        <?php 
-            if ($liked == 1) {
-                echo $this->Form->button(
-                    '<span class="glyphicon glyphicon-heart"></span> Like', 
-                    array('controller' => 'likes', 'action' => 'like',
-                        'class' => 'btn btn-danger btn-sm',
-                        'id' => $image['Image']['id'],
-                        'onclick' => 'like('. $image['Image']['id'] .')',
-                        'name' => 'like'),
-                    array('escape' => false));
-                echo $this->Form->end();
+		<div class="col-md-"5>
+	        <?php 
+	            if ($liked == 1) {
+	                echo $this->Form->button(
+	                    '<span class="glyphicon glyphicon-heart"></span> Like', 
+	                    array('controller' => 'likes', 'action' => 'like',
+	                        'class' => 'btn btn-danger btn-sm',
+	                        'id' => $image['Image']['id'],
+	                        'onclick' => 'like('. $image['Image']['id'] .')',
+	                        'name' => 'like'),
+	                    array('escape' => false));
+	                echo $this->Form->end();
 
-            } else {
-                echo $this->Form->button(
-                    '<span class="glyphicon glyphicon-heart"></span> Like', 
-                    array('controller' => 'likes', 'action' => 'like',
-                        'class' => 'btn btn-default btn-sm',
-                        'id' => $image['Image']['id'],
-                        'onclick' => 'like('. $image['Image']['id'] .')',
-                        'name' => 'like'),
-                    array('escape' => false));
-                echo $this->Form->end();
-            }
+	            } else {
+	                echo $this->Form->button(
+	                    '<span class="glyphicon glyphicon-heart"></span> Like', 
+	                    array('controller' => 'likes', 'action' => 'like',
+	                        'class' => 'btn btn-default btn-sm',
+	                        'id' => $image['Image']['id'],
+	                        'onclick' => 'like('. $image['Image']['id'] .')',
+	                        'name' => 'like'),
+	                    array('escape' => false));
+	                echo $this->Form->end();
+	            }
 
-            echo "<b><div class ='like_count' id = '" . $image['Image']['id'] . "'>" . count($image['Like']) . "</div></b>";
+	            echo "<b><div class ='like_count' id = '" . $image['Image']['id'] . "'>" . count($image['Like']) . "</div></b>";
 
-        ?>
+	        ?>
+	        
+	    </div>
+	    
 
 		<br>
-
-		<?php
-			if($this->Session->read('Auth.User')) {
-			?>
-				<div class="addComment input-group">
-					<textarea rows="5" cols="50" class="comment-input" placeholder="Add your comment..."></textarea>
-					<div>
-						<button class="btn-primary" type="submit" onclick="comment(<?php echo $image['Image']['id'] ?>, <?php echo $user_id ?>)">
-							Comment
-						</button>
+		
+			<?php
+				if($this->Session->read('Auth.User')) {
+				?>
+					<div class="addComment input-group">
+						<textarea rows="5" cols="50" class="comment-input" placeholder="Add your comment..."></textarea>
+						<div>
+							<button class="btn-primary" type="submit" onclick="comment(<?php echo $image['Image']['id'] ?>, <?php echo $user_id ?>)">
+								Comment
+							</button>
+						</div>
 					</div>
-				</div>
-			<?php 
+				<?php 
 
-			}
-		?>
-
+				}
+			?>
+		
 	</div>
 	<div class="col-md-4">
 		<h5><b>COMMENT</b></h5>

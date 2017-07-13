@@ -26,6 +26,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
      <?php echo $this->Html->script('like_image'); ?>
      <?php echo $this->Html->script('js-comments'); ?>
+     <?php echo $this->Html->script('test-1'); ?>
+     <?php echo $this->Html->script('comt-2'); ?>
 
 
      <style>
@@ -38,8 +40,15 @@
 
 	</head>
 	<body>
-		
-	<div id="fh5co-offcanvass">
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=1366704526733080";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+			<div id="fh5co-offcanvass">
 		<a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i> </a>
 		<h4 style="margin-left: 5px; margin-bottom: 15px;">
 		<?php
@@ -53,6 +62,7 @@
 			
 			<?php if ($this->Session->read('Auth.User')) { ?>
 				<li><?php echo $this->Html->link('Upload Images', '/images/upload'); ?></li>
+				<li><?php echo $this->Html->link('Upload Videos', '/videos/upload'); ?></li>
 				<li><?php echo $this->Html->link('Log Out',
 					array('controller' => 'users', "action" => "logout")); ?></li>
 			<?php } else { ?>
@@ -75,7 +85,8 @@
 			<div class="row">
 				<div class="col-md-12">
 					<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
-					<a class="navbar-brand" <?php echo $this->Html->link('StockPhotos', '/images/index'); ?> </a>
+					<a class="navbar-brand" <?php echo $this->Html->link('StockPhotos', '/images/index');?> </a>
+					<a class="navbar-brand" <?php echo $this->Html->link('StockVideos', '/videos/index');?> </a>
 				</div>
 			</div>
 		</div>

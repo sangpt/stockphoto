@@ -1,5 +1,5 @@
 <?php 
 class Like extends AppModel{
-	public $belongsTo = array('User', 'Image');
+	public $belongsTo = array('User', 'Image', 'Video');
 }
 ?>
