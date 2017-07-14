@@ -27,6 +27,7 @@ function like(id) {
                 $(location).attr('href',url);
             }
         },
+    });
 }  
 
 

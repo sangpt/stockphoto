@@ -10,10 +10,18 @@
                         echo $this->Html->media($string, array(
                             'type' => 'videos/mp4',
                             'controls',
-                            'style'=>'width:300px; height:400px;'
+                            'style'=>'width:100%;'
                             
                             ));
                     ?>
+                        <div class="playbutton">
+                        <?php
+                            echo $this->HTML->link(
+                            $this->Html->image("https://doky.io/v3/images/play-button.png"),
+                            array('controller' => 'videos', 'action' => 'view', $video['Video']['id']),
+                            array('escape' => false));
+                        ?>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
