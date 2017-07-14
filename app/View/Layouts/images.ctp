@@ -30,8 +30,6 @@
      <?php echo $this->Html->script('js-comments'); ?>
      <?php echo $this->Html->script('test-1'); ?>
      <?php echo $this->Html->script('comt-2'); ?>
-     <?php echo $this->Html->script('btn'); ?>
- 
 
 
      <style>

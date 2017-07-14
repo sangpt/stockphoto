@@ -10,7 +10,7 @@
                         echo $this->Html->media($string, array(
                             'type' => 'videos/mp4',
                             'controls',
-                            'style'=>'width:100%;'
+                            'style'=>'width:300px; height:400px;'
                             
                             ));
                     ?>
