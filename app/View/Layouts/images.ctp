@@ -18,16 +18,20 @@
 <?php echo $this->element("/photo/css"); ?>
 	
 	<?php echo $this->Html->css('customs'); ?>
+	<?php echo $this->Html->css('style'); ?>
+	<?php echo $this->Html->css('animate'); ?>
 	
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-     <?php echo $this->Html->script('like_image'); ?>
+     <?php echo $this->Html->script('likeimage'); ?>
      <?php echo $this->Html->script('js-comments'); ?>
      <?php echo $this->Html->script('test-1'); ?>
      <?php echo $this->Html->script('comt-2'); ?>
+     <?php echo $this->Html->script('btn'); ?>
+ 
 
 
      <style>
@@ -85,8 +89,12 @@
 			<div class="row">
 				<div class="col-md-12">
 					<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
-					<a class="navbar-brand" <?php echo $this->Html->link('StockPhotos', '/images/index');?> </a>
-					<a class="navbar-brand" <?php echo $this->Html->link('StockVideos', '/videos/index');?> </a>
+					<a class="navbar-brand" href="/STOCK_PHOTO_teamC/images/index">StockPhotos</a></a>
+					<center>	
+						<a href="/STOCK_PHOTO_teamC/images/index">Photos</a>
+						<a href="/STOCK_PHOTO_teamC/videos/index">Videos</a>		
+					</center>
+
 				</div>
 			</div>
 		</div>
