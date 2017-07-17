@@ -15,13 +15,10 @@
                             ));
                     ?>
                         <div class="playbutton">
-                        <?php
-                            echo $this->HTML->link(
-                            $this->Html->image("https://doky.io/v3/images/play-button.png"),
-                            array('controller' => 'videos', 'action' => 'view', $video['Video']['id']),
-                            array('escape' => false));
-                        ?>
-                        </div>
+                            <a href="<?php echo "/STOCK_PHOTO_teamC/videos/view/".$video['Video']['id']; ?>">
+                                <img src="https://doky.io/v3/images/play-button.png" >
+                            </a>
+                        </div> 
                     </div>
                     <div class="row">
                         <div class="col-md-3">

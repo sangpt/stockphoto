@@ -1,5 +1,4 @@
 .playbutton{
-    background-repeat:no-repeat;
     width:50%;
     height:50%;
     position:absolute;
@@ -8,6 +7,4 @@
     top:16%;
     bottom:0%;
     margin:auto;
-    background-size:contain;
-    background-position: center;
 }
