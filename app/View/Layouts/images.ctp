@@ -88,9 +88,9 @@
 				<div class="col-md-12">
 					<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
 					<a class="navbar-brand" href="/STOCK_PHOTO_teamC/images/index">StockPhotos</a></a>
-					<center>	
-						<a href="/STOCK_PHOTO_teamC/images/index">Photos</a>
-						<a href="/STOCK_PHOTO_teamC/videos/index">Videos</a>		
+					<center style="font-size: 20px; font-weight:bold;">	
+						<a style="text-decoration:none; " href="/STOCK_PHOTO_teamC/images/index">Photos&nbsp;&nbsp;</a>
+						<a style="text-decoration:none; " href="/STOCK_PHOTO_teamC/videos/index">&nbsp;&nbsp;Videos</a>		
 					</center>
 
 				</div>
